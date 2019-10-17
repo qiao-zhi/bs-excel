@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.qs.mapper.problem.ProblemCustomMapper">
+
+	<select id="listDistinctSystemType" resultType="string">
+		select distinct system_type from problem
+	</select>
+
+
+	<select id="listByCondition2" resultType="map"
+		parameterType="map">
+		SELECT * from problem
+		<where>
+			<if test="systemName != null and systemName != ''">
+				and system_name like '%${systemName}%'
+			</if>
+			<if test="testManufacture != null and testManufacture != ''">
+				and test_manufacture like '%${testManufacture}%'
+			</if>
+			<if test="parentNames != null">
+				<foreach collection="parentNames" item="parentName" index="indexNum"
+				open="and system_type in (" separator="," close=")">
+					'${parentName}'
+				</foreach>
+			</if>
+		</where>
+	</select>
+	
+</mapper>

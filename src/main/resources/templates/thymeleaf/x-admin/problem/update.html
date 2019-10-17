@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8"/>
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,bean-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="${#httpServletRequest.getContextPath()+'/static/x-admin/css/font.css'}"/>
+    <link rel="stylesheet" th:href="${#httpServletRequest.getContextPath()+'/static/x-admin/css/xadmin.css'}"/>
+    
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/js/jquery.min.js'}"></script>
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/x-admin/lib/layui/layui.js'}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/x-admin/js/xadmin.js'}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-body layui-anim layui-anim-up">
+        <form class="layui-form">
+        
+       	  <input type="hidden" th:field="${bean.id}"/>
+       	  
+       	 <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>系统名称
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="systemName" autocomplete="off" class="layui-input" th:field="${bean.systemName}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>系统类型
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="systemType" autocomplete="off" class="layui-input" th:field="${bean.systemType}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>测试类型
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="testType" autocomplete="off" class="layui-input" th:field="${bean.testType}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>版本
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="version" autocomplete="off" class="layui-input" th:field="${bean.version}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>测试厂商
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="testManufacture" autocomplete="off" class="layui-input" th:field="${bean.testManufacture}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>测试人
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="testPerson" autocomplete="off" class="layui-input" th:field="${bean.testPerson}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>测试日期
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="testDate" autocomplete="off" class="layui-input" th:field="${bean.testDate}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>问题类型
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="problemType" autocomplete="off" class="layui-input" th:field="${bean.problemType}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>问题名称
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="problemName" autocomplete="off" class="layui-input" th:field="${bean.problemName}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>风险等级
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="riskLevel" autocomplete="off" class="layui-input" th:field="${bean.riskLevel}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>问题描述
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="problemDesc" autocomplete="off" class="layui-input" th:field="${bean.problemDesc}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>整改方案
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="resolveMethod" autocomplete="off" class="layui-input" th:field="${bean.resolveMethod}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>整改计划
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="resolvePlan" autocomplete="off" class="layui-input" th:field="${bean.resolvePlan}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>整改进展
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="resolveResult" autocomplete="off" class="layui-input" th:field="${bean.resolveResult}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>完成时间
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="finishDate" autocomplete="off" class="layui-input" th:field="${bean.finishDate}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>备注
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="remark" autocomplete="off" class="layui-input" th:field="${bean.remark}"/>
+              </div>
+          </div>
+          
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  <span class="x-red">*</span>根本解决/临时方案
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="result" autocomplete="off" class="layui-input" th:field="${bean.result}"/>
+              </div>
+          </div>
+       	  
+          <div class="layui-form-item">
+              <label for="L_repass" class="layui-form-label">
+              </label>
+              <button  class="layui-btn" lay-filter="add" lay-submit="">
+                  修改
+              </button>
+          </div>
+      </form>
+    </div>
+    
+    <!--JS 定义的上下文 -->
+    <script th:inline="javascript">     
+        var contextPath= [[@{/}]];      
+	</script>
+	
+    <script>
+        layui.use(['form','layer'], function(){
+            $ = layui.jquery;
+          var form = layui.form
+          ,layer = layui.layer;
+        
+          //监听提交
+          form.on('submit(add)', function(data){
+       	    //异步提交数据
+       	    $.post("./doUpdate.html",data.field,function(response){
+       	    	if(response.success == true){
+       	    	  layer.msg("修改成功", {icon: 6},function () {
+                      // 获得frame索引
+                      var index = parent.layer.getFrameIndex(window.name);
+                      //关闭当前frame
+                      parent.layer.close(index);
+                      // 父页面刷新
+                      parent.location.reload();
+                  });
+       	    	}else{
+       	    		layer.alert(response.msg);
+       	    	}
+       	    });
+          
+            return false;
+          });
+          
+          
+        });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8"/>
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/static/x-admin/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="${#httpServletRequest.getContextPath()+'/static/x-admin/css/font.css'}"/>
+    <link rel="stylesheet" th:href="${#httpServletRequest.getContextPath()+'/static/x-admin/css/xadmin.css'}"/>
+    
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/js/jquery.min.js'}"></script>
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/x-admin/lib/layui/layui.all.js'}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="${#httpServletRequest.getContextPath()+'/static/x-admin/js/xadmin.js'}"></script>
+  </head>
+  
+  <body class="layui-anim layui-anim-up">
+      <div class="x-body layui-anim layui-anim-up">
+		  <form class="layui-form" id="uploadFile" method="post" enctype="application/x-www-form-urlencoded">
+			    <div class="x-body">
+			        <div class="layui-form-item">
+			            <label for="L_email" class="layui-form-label">
+			                <span class="x-red"></span>文件
+			            </label>
+			            <div class="layui-input-inline">
+			            	<input type="text" class="layui-input" id="videoFileNameDisplay"/>
+			            </div>
+			        </div>
+			        
+			       	<div class="layui-form-item">
+			              <label for="L_repass" class="layui-form-label">
+			              </label>
+			              <button type="button" class="layui-btn" id="uploadUrl">
+			                  	增加
+			              </button>
+			          </div>
+			    </div>
+		      </form>
+      </div>
+    <script>
+	layui.use(['upload','layer'],function () {
+        var upload = layui.upload,layer = layui.layer;
+        var uploadInst = upload.render({
+            elem: '#videoFileNameDisplay',//绑定的元素
+            url: './doImport.html',//提交的url
+            auto: false,//是否自动上传
+            bindAction: '#uploadUrl', //指向一个按钮触发上传
+            size: 1048576,
+            accept:'file',
+            multiple: false,//支持多文件上传
+            choose:function(obj){
+                obj.preview(function(index, file, result){
+                	$("#videoFileNameDisplay").val(file.name);
+                });
+            },
+            done: function(response, index, upload){ //假设code=0代表上传成功
+     	    	if(response.success == true){
+       	    	  layer.msg("增加成功", {icon: 6},function () {
+                      // 获得frame索引
+                      var index = parent.layer.getFrameIndex(window.name);
+                      //关闭当前frame
+                      parent.layer.close(index);
+                      // 父页面刷新
+                      parent.location.reload();
+                  });
+       	    	}else{
+       	    		layer.alert(response.msg);
+       	    	}
+            }
+        });
+    })
+    </script>
+  </body>
+</html>
